@@ -11,22 +11,19 @@ import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) {
-//        Util.getConnection();
-        UserServiceImpl UserServiceImpl = new UserServiceImpl();
+        UserDao userDao = new UserDaoJDBCImpl();
 
-        UserServiceImpl.createUsersTable();
+        userDao.createUsersTable();
 
-        UserServiceImpl.saveUser("Name1", "LastName1", (byte) 20);
-        UserServiceImpl.saveUser("Name2", "LastName2", (byte) 25);
-        UserServiceImpl.saveUser("Name3", "LastName3", (byte) 31);
-        UserServiceImpl.saveUser("Name4", "LastName4", (byte) 38);
-
-        UserServiceImpl.removeUserById(1);
-
-        UserServiceImpl.removeUserById(1);
-        UserServiceImpl.getAllUsers();
-        UserServiceImpl.cleanUsersTable();
-        UserServiceImpl.dropUsersTable();
+        userDao.saveUser("alex", "korka", (byte) 20);
+        userDao.saveUser("misha", "pomidorov", (byte) 25);
+        userDao.saveUser("kostya", "lohnidze", (byte) 31);
+        userDao.saveUser("jane", "perl", (byte) 38);
+        userDao.removeUserById(1);
+        userDao.removeUserById(1);
+        userDao.getAllUsers();
+        userDao.cleanUsersTable();
+        userDao.dropUsersTable();
     }
 
 }
